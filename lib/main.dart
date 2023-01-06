@@ -14,6 +14,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'ChatGPT',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
@@ -28,9 +29,12 @@ class HomeWebView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const WebViewPlus(
-      initialUrl: 'https://www.chat.openai.com',
-      javascriptMode: JavascriptMode.unrestricted,
+    return const SafeArea(
+      child: WebViewPlus(
+        initialUrl: 'https://chat.openai.com',
+        javascriptMode: JavascriptMode.unrestricted,
+        userAgent: 'random',
+      ),
     );
   }
 }
